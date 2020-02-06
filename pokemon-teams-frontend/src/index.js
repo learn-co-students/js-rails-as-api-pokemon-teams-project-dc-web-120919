@@ -58,9 +58,12 @@ function releasePokemon(e) {
     let pokemonID = e.target.dataset.id 
     fetch('http://localhost:3000/pokemons/'+pokemonID, {
         method: "DELETE", 
+        headers: {
+            "Content-Tpe": "application/json"
+        }
 
        })
-       .then(r => r.json() )
+       .then(respone => respone.json())
        .then( data => console.log(data) )
        
        event.target.parentElement.remove()
